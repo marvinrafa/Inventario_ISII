@@ -12,12 +12,12 @@ namespace Inventario
         private string codigo;
 
         private string descripcion;
-        private double precio_unitario;
+        private bool auto;
         private int existencias;
 
         public string Codigo { get => codigo; set => codigo = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
-        public double Precio_Unitario { get => precio_unitario; set => precio_unitario = value; }
+        public bool Stock_Automatico { get => auto; set => auto = value; }
         public int Existencias { get => existencias; set => existencias = value; }
    
     }

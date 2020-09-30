@@ -17,7 +17,7 @@ namespace Inventario
         public string codigo = "";
         public string descripcion = "";
         public int existencias;
-        public double precio_publico;
+        public int auto;
 
         public Materiales()
         {
@@ -34,12 +34,13 @@ namespace Inventario
         {
             if (modificando == true)
             {
-                codigo = txtCodigo.Text;
+              
                 descripcion = txtDescripcion.Text;
                 existencias = int.Parse(txtCantidad.Text);
-                precio_publico = double.Parse(txtPrecio.Text);
+                auto = cmbAuto.SelectedIndex;
 
-                string sql = "UPDATE materiales SET id='" + codigo + "', descripcion='" + descripcion + "', stock='" + existencias + "', precio_unitario='" + precio_publico + "' WHERE id='" + lblseleccionado.Text + "'";
+
+                string sql = "UPDATE materiales SET material='" + descripcion + "', stock='" + existencias + "', auto='" + auto + "' WHERE id='" + lblseleccionado.Text + "'";
 
                 MySqlConnection conexionBD = Conexion.conexion();
                 conexionBD.Open();
@@ -69,15 +70,14 @@ namespace Inventario
             {
                 try
                 {
-                    codigo = txtCodigo.Text;
                     descripcion = txtDescripcion.Text;
                     existencias = int.Parse(txtCantidad.Text);
-                    precio_publico = double.Parse(txtPrecio.Text);
+                    auto = cmbAuto.SelectedIndex;
 
-                    if (codigo != "" && descripcion != "" && precio_publico > 0 && existencias > 0)
+                    if (descripcion != "" && existencias > 0)
                     {
 
-                        string sql = "INSERT INTO materiales (id, descripcion, stock, precio_unitario) VALUES ('" + codigo + "', '" + descripcion + "','" + existencias + "','" + precio_publico + "')";
+                        string sql = "INSERT INTO materiales (material, stock, auto) VALUES ('" + descripcion + "','" + existencias + "','" + auto + "')";
 
                         MySqlConnection conexionBD = Conexion.conexion();
                         conexionBD.Open();
@@ -118,9 +118,8 @@ namespace Inventario
 
         private void limpiar()
         {
-            txtCodigo.Text = "";
+  
             txtDescripcion.Text = "";
-            txtPrecio.Text = "";
             txtCantidad.Text = "";
         }
 
@@ -137,7 +136,6 @@ namespace Inventario
             grpDatos.Enabled = true;
             modificando = true;
             btnGuardar.Visible = true;
-            txtCodigo.Enabled = false;
         }
 
         private void dtgMateriales_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -146,10 +144,19 @@ namespace Inventario
             btnEliminar.Enabled = true;
             DataGridViewRow dgv = dtgMateriales.Rows[e.RowIndex];
             lblseleccionado.Text = dgv.Cells[0].Value.ToString();
-            txtCodigo.Text = dgv.Cells[0].Value.ToString();
             txtDescripcion.Text = dgv.Cells[1].Value.ToString();
             txtCantidad.Text = dgv.Cells[3].Value.ToString();
-            txtPrecio.Text = dgv.Cells[2].Value.ToString();
+            if (bool.Parse(dgv.Cells[2].Value.ToString()) == true )
+            {
+                cmbAuto.SelectedIndex = 1;
+
+            }
+            else
+            {
+                cmbAuto.SelectedIndex = 0;
+
+            }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

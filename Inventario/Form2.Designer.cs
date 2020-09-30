@@ -40,13 +40,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Nuevo = new System.Windows.Forms.Label();
             this.grpDatos = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbAuto = new System.Windows.Forms.ComboBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtgMateriales = new System.Windows.Forms.DataGridView();
@@ -57,6 +54,7 @@
             this.btnEliminar = new System.Windows.Forms.PictureBox();
             this.btnModificar = new System.Windows.Forms.PictureBox();
             this.btnNuevo = new System.Windows.Forms.PictureBox();
+            this.txtCantidad = new System.Windows.Forms.NumericUpDown();
             this.grpDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMateriales)).BeginInit();
@@ -66,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnModificar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // label11
@@ -148,13 +147,11 @@
             // grpDatos
             // 
             this.grpDatos.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.grpDatos.Controls.Add(this.label10);
-            this.grpDatos.Controls.Add(this.txtPrecio);
             this.grpDatos.Controls.Add(this.txtCantidad);
-            this.grpDatos.Controls.Add(this.txtDescripcion);
-            this.grpDatos.Controls.Add(this.txtCodigo);
-            this.grpDatos.Controls.Add(this.btnGuardar);
             this.grpDatos.Controls.Add(this.label2);
+            this.grpDatos.Controls.Add(this.cmbAuto);
+            this.grpDatos.Controls.Add(this.txtDescripcion);
+            this.grpDatos.Controls.Add(this.btnGuardar);
             this.grpDatos.Controls.Add(this.label4);
             this.grpDatos.Controls.Add(this.label3);
             this.grpDatos.Enabled = false;
@@ -164,46 +161,33 @@
             this.grpDatos.TabIndex = 26;
             this.grpDatos.TabStop = false;
             // 
-            // label10
+            // label2
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(21, 197);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(119, 13);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Costo unitario de venta:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 102);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Tipo de stock";
             // 
-            // txtPrecio
+            // cmbAuto
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(21, 213);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(78, 20);
-            this.txtPrecio.TabIndex = 25;
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Location = new System.Drawing.Point(21, 155);
-            this.txtCantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(78, 20);
-            this.txtCantidad.TabIndex = 24;
+            this.cmbAuto.FormattingEnabled = true;
+            this.cmbAuto.Items.AddRange(new object[] {
+            "Manual",
+            "Automático (Se puede contar)"});
+            this.cmbAuto.Location = new System.Drawing.Point(24, 118);
+            this.cmbAuto.Name = "cmbAuto";
+            this.cmbAuto.Size = new System.Drawing.Size(199, 21);
+            this.cmbAuto.TabIndex = 25;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(21, 93);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Location = new System.Drawing.Point(21, 54);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(295, 20);
             this.txtDescripcion.TabIndex = 23;
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(21, 32);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(146, 20);
-            this.txtCodigo.TabIndex = 22;
             // 
             // btnGuardar
             // 
@@ -219,19 +203,10 @@
             this.btnGuardar.Visible = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Código de material";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 139);
+            this.label4.Location = new System.Drawing.Point(23, 164);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 13);
             this.label4.TabIndex = 8;
@@ -240,11 +215,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 76);
+            this.label3.Location = new System.Drawing.Point(18, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Descripción:";
+            this.label3.Text = "Material:";
             // 
             // dtgMateriales
             // 
@@ -279,7 +254,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgMateriales.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgMateriales.RowHeadersWidth = 51;
-            this.dtgMateriales.Size = new System.Drawing.Size(556, 332);
+            this.dtgMateriales.Size = new System.Drawing.Size(581, 332);
             this.dtgMateriales.TabIndex = 24;
             this.dtgMateriales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgMateriales_CellClick);
             // 
@@ -298,7 +273,7 @@
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::Inventario.Properties.Resources.iconfinder_18_Close_106227;
             this.pictureBox1.Location = new System.Drawing.Point(986, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 35);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -366,6 +341,13 @@
             this.btnNuevo.TabStop = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Location = new System.Drawing.Point(26, 189);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(120, 20);
+            this.txtCantidad.TabIndex = 27;
+            // 
             // Materiales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,9 +372,9 @@
             this.Controls.Add(this.dtgMateriales);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Materiales";
-            this.Text = "Form2";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.MaterialesClass_Load);
             this.grpDatos.ResumeLayout(false);
             this.grpDatos.PerformLayout();
@@ -404,6 +386,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnModificar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,16 +409,14 @@
         private System.Windows.Forms.PictureBox btnNuevo;
         private System.Windows.Forms.GroupBox grpDatos;
         private System.Windows.Forms.PictureBox btnGuardar;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dtgMateriales;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbAuto;
+        private System.Windows.Forms.NumericUpDown txtCantidad;
     }
 }
