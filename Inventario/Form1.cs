@@ -24,7 +24,7 @@ namespace Inventario
 
         private void inventarioDisponibleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Materiales frm = new Materiales();
+            formMateriales frm = new formMateriales();
             frm.Show();
         }
     }
