@@ -63,6 +63,16 @@ namespace Inventario.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap boton_anadir {
+            get {
+                object obj = ResourceManager.GetObject("boton_anadir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_2071968_1280 {
             get {
                 object obj = ResourceManager.GetObject("icon_2071968_1280", resourceCulture);
