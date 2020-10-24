@@ -99,6 +99,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CambiarImpresor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarImpresor.Designer.cs">
+      <DependentUpon>CambiarImpresor.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataModels\Inventario1.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,6 +122,12 @@
     <Compile Include="FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmpleados.Designer.cs">
+      <DependentUpon>FormEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMateriales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +139,12 @@
     </Compile>
     <Compile Include="FormVender.Designer.cs">
       <DependentUpon>FormVender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHistorialVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistorialVentas.Designer.cs">
+      <DependentUpon>FormHistorialVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="LinqToDB.Templates\LinqToDB.MySql.Tools.generated.cs">
       <AutoGen>True</AutoGen>
@@ -140,11 +158,17 @@
     <Compile Include="Reportes\ReporteMateriales.cs" />
     <Compile Include="Reportes\ReporteProductos.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="CambiarImpresor.resx">
+      <DependentUpon>CambiarImpresor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmpleados.resx">
+      <DependentUpon>FormEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMateriales.resx">
       <DependentUpon>FormMateriales.cs</DependentUpon>
@@ -228,6 +252,8 @@
       <LastGenOutput>Inventario1.generated.cs</LastGenOutput>
     </Content>
     <Content Include="LinqToDB.Templates\CopyMe.MySql.tt.txt" />
+    <None Include="Resources\done.png" />
+    <None Include="Resources\config.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

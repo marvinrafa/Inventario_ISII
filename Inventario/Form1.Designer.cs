@@ -30,10 +30,12 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inventarioDisponibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarImpresorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +48,8 @@
             this.clientesToolStripMenuItem,
             this.ventasToolStripMenuItem,
             this.historialDeVentasToolStripMenuItem,
-            this.usuariosToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 3, 0, 3);
@@ -64,24 +67,6 @@
             this.inventarioDisponibleToolStripMenuItem.Text = "Inventario y productos";
             this.inventarioDisponibleToolStripMenuItem.Click += new System.EventHandler(this.inventarioDisponibleToolStripMenuItem_Click);
             // 
-            // ventasToolStripMenuItem
-            // 
-            this.ventasToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ventasToolStripMenuItem.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ventasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(140, 32);
-            this.ventasToolStripMenuItem.Text = "Hacer venta";
-            // 
-            // historialDeVentasToolStripMenuItem
-            // 
-            this.historialDeVentasToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.historialDeVentasToolStripMenuItem.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.historialDeVentasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.historialDeVentasToolStripMenuItem.Name = "historialDeVentasToolStripMenuItem";
-            this.historialDeVentasToolStripMenuItem.Size = new System.Drawing.Size(204, 32);
-            this.historialDeVentasToolStripMenuItem.Text = "Historial de ventas";
-            // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -92,6 +77,26 @@
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
+            // ventasToolStripMenuItem
+            // 
+            this.ventasToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ventasToolStripMenuItem.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(89, 32);
+            this.ventasToolStripMenuItem.Text = "Ventas";
+            this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
+            // 
+            // historialDeVentasToolStripMenuItem
+            // 
+            this.historialDeVentasToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.historialDeVentasToolStripMenuItem.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historialDeVentasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.historialDeVentasToolStripMenuItem.Name = "historialDeVentasToolStripMenuItem";
+            this.historialDeVentasToolStripMenuItem.Size = new System.Drawing.Size(128, 32);
+            this.historialDeVentasToolStripMenuItem.Text = "Empleados";
+            this.historialDeVentasToolStripMenuItem.Click += new System.EventHandler(this.historialDeVentasToolStripMenuItem_Click);
+            // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -100,6 +105,26 @@
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(107, 32);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cambiarImpresorToolStripMenuItem});
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(159, 32);
+            this.toolStripMenuItem1.Text = "Configuración";
+            // 
+            // cambiarImpresorToolStripMenuItem
+            // 
+            this.cambiarImpresorToolStripMenuItem.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cambiarImpresorToolStripMenuItem.Name = "cambiarImpresorToolStripMenuItem";
+            this.cambiarImpresorToolStripMenuItem.Size = new System.Drawing.Size(241, 28);
+            this.cambiarImpresorToolStripMenuItem.Text = "Cambiar impresor";
+            this.cambiarImpresorToolStripMenuItem.Click += new System.EventHandler(this.cambiarImpresorToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -132,6 +157,8 @@
         private System.Windows.Forms.ToolStripMenuItem historialDeVentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cambiarImpresorToolStripMenuItem;
     }
 }
 

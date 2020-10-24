@@ -182,11 +182,11 @@ namespace DataModels
 	[Table("ventas")]
 	public partial class Venta
 	{
-		[Column("id"),          PrimaryKey,  NotNull] public int       Id         { get; set; } // int(11)
-		[Column("id_cliente"),     Nullable         ] public int?      IdCliente  { get; set; } // int(11)
-		[Column("total"),          Nullable         ] public double?   Total      { get; set; } // double
-		[Column("id_empleado"),    Nullable         ] public string    IdEmpleado { get; set; } // varchar(10)
-		[Column("fecha"),          Nullable         ] public DateTime? Fecha      { get; set; } // date
+		[Column("id"),          PrimaryKey, Identity] public int       Id         { get; set; } // int(11)
+		[Column("id_cliente"),  Nullable            ] public int?      IdCliente  { get; set; } // int(11)
+		[Column("total"),       Nullable            ] public double?   Total      { get; set; } // double
+		[Column("id_empleado"), Nullable            ] public string    IdEmpleado { get; set; } // varchar(10)
+		[Column("fecha"),       Nullable            ] public DateTime? Fecha      { get; set; } // date
 
 		#region Associations
 

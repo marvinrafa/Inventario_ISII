@@ -51,6 +51,10 @@ dlldata.c
 # Benchmark Results
 BenchmarkDotNet.Artifacts/
 
+#SonarQube
+.sonarqube
+.scannerwork
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json

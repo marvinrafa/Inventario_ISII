@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Drawing.Printing;
+using System.Configuration;
 
 namespace Inventario.Reportes
 {
@@ -15,7 +16,8 @@ namespace Inventario.Reportes
         {
             PrintDocument doc = new PrintDocument();
             doc.DefaultPageSettings.Landscape = true;
-            doc.PrinterSettings.PrinterName = "EPSON L3110 Series";
+            string sAttr = ConfigurationManager.AppSettings.Get("Impresor");
+            doc.PrinterSettings.PrinterName = sAttr;
 
             PrintPreviewDialog ppd = new PrintPreviewDialog { Document = doc };
             ((Form)ppd).WindowState = FormWindowState.Normal;

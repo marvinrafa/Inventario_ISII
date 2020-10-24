@@ -42,5 +42,40 @@ namespace Inventario
             frm.Show();
 
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            return;
+        }
+
+        private void cambiarImpresorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CambiarImpresor frm = new CambiarImpresor()
+            {
+                MdiParent = this
+            };
+
+            frm.Show();
+        }
+
+        private void historialDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEmpleados frm = new FormEmpleados()
+            {
+                MdiParent = this
+            };
+
+            frm.Show();
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormVender frm = new FormVender()
+            {
+                MdiParent = this
+            };
+
+            frm.Show();
+        }
     }
 }
