@@ -79,6 +79,9 @@ namespace Inventario.ModelsClasses
                         Form1 frm = new Form1();
                         frm.menuStrip1.Items[3].Enabled = false;
                         frm.menuStrip1.Items[4].Enabled = false;
+                        frm.toolStripMenuItem3.Enabled = false;
+                        frm.toolStripMenuItem4.Enabled = false;
+
                         frm.usuarioStrip.Text = User.Usuario;
                         frm.Show();
                         return true;
