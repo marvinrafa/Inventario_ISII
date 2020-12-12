@@ -24,7 +24,6 @@ namespace Inventario
             InitializeComponent();
         }
 
-
         public List<Cliente> BuscarCliente(string searchFor)
         {
             using (var db = new InventarioDB())
@@ -67,7 +66,6 @@ namespace Inventario
             btnAgregarArticulo.Enabled = false;
             btnGuardar.Enabled = false;
         }
-
   
         public List<Producto> BuscarProducto(string searchFor)
         {
@@ -83,7 +81,66 @@ namespace Inventario
 
         private void FormVender_Load(object sender, EventArgs e)
         {
+            cargarHistorial();
+            cargarHistorialSemanal();
+        }
 
+        private void cargarHistorial()
+        {
+            try
+            {
+                using (var db = new InventarioDB())
+                {
+                    var q =
+                      from p in db.Ventas
+                      from c in db.Empleados.InnerJoin(pr => pr.Id == p.IdEmpleado)
+                      from d in db.Clientes.InnerJoin(pr => pr.Id == p.IdCliente)
+                      select new
+                      {
+                          ID_Venta = p.Id,
+                          Cliente = d.ClienteColumn,
+                          Empleado  = c.Nombre,
+                          p.Total,
+                          p.Fecha  
+                      };
+                    dtgHistorial.DataSource = q.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error : " + e);
+            }
+        }
+
+        private void cargarHistorialSemanal()
+        {
+            DateTime today = DateTime.Now;
+            DateTime weekAgo = DateTime.Today.AddDays(-7);
+
+            try
+            {
+                using (var db = new InventarioDB())
+                {
+                    var q =
+                      from p in db.Ventas
+                      from c in db.Empleados.InnerJoin(pr => pr.Id == p.IdEmpleado)
+                      from d in db.Clientes.InnerJoin(pr => pr.Id == p.IdCliente)
+                      where p.Fecha.Between(weekAgo,today)
+                      select new
+                      {
+                          ID_Venta = p.Id,
+                          Cliente = d.ClienteColumn,
+                          Empleado = c.Nombre,
+                          p.Total,
+                          p.Fecha
+                      };
+                    dtgHistorialSemanal.DataSource = q.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error : " + e);
+            }
         }
 
         private void txtCliente_Leave(object sender, EventArgs e)
@@ -100,6 +157,7 @@ namespace Inventario
                 cancelarVenta();
             }
         }
+
         private void agregarArticulo(int producto, int cantidad)
         {
             string descripcion="";
@@ -138,6 +196,7 @@ namespace Inventario
             btnGuardar.Visible = true;
             lblPrecio.Text= calcularPrecio().ToString();
         }
+
         private void pictureBox2_Click(object sender, EventArgs e)
         {
                 if (dtgProducto.ColumnCount > 0)
@@ -165,6 +224,7 @@ namespace Inventario
             }
             return precio;
         }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             cancelarVenta();
@@ -202,6 +262,41 @@ namespace Inventario
                 {
                     using (var db = new InventarioDB())
                     {
+
+                        var matProd =
+                           from p in db.Productos.Where(pr => pr.Id == int.Parse(dtgArticulos.Rows[i].Cells[0].Value.ToString()))
+                           select new
+                           {
+                               p.Material
+                           };
+
+                        string mat = matProd.ToList().SingleOrDefault().Material.ToString();
+
+                        var q =
+                            from p in db.Materiales.Where(pr => pr.Id == int.Parse(mat))
+                            select new
+                            {
+                                p.Id
+                            };
+
+                        var quantity =
+                          from p in db.Materiales.Where(pr => pr.Id == int.Parse(mat))
+                          select new
+                          {
+                              p.Stock
+                          };
+                        string id = q.ToList().SingleOrDefault().Id.ToString();
+                        string quant = quantity.ToList().SingleOrDefault().Stock.ToString();
+
+                        MessageBox.Show(id + quant);
+                        db.Materiales
+                           .Where(p => p.Id == int.Parse(id))
+                           .Where(p => p.Auto == true)
+                           .Set(p => p.Stock, int.Parse(quant) - int.Parse(dtgArticulos.Rows[i].Cells[2].Value.ToString()))
+                           .Update();
+                    }
+                    using (var db = new InventarioDB())
+                    {
                         db.Insert(new DetalleVenta
                         {
                             IdProducto = int.Parse(dtgArticulos.Rows[i].Cells[0].Value.ToString()),
@@ -218,9 +313,22 @@ namespace Inventario
                 MessageBox.Show("Error:" + e);
             }
         }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            ReporteVentas reporteVentas = new ReporteVentas();
+            reporteVentas.imprimir(dtgHistorial);
+        }
+
+        private void btnHistorialSemanal_Click(object sender, EventArgs e)
+        {
+            ReporteSemanal reporteSemanal = new ReporteSemanal();
+            reporteSemanal.imprimir(dtgHistorialSemanal);
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            guardarVenta("001");
+            guardarVenta(User.Empleado);
         }
 
         private void txtCambio_KeyPress(object sender, KeyPressEventArgs e)

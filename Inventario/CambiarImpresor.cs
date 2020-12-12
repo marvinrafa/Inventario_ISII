@@ -23,7 +23,6 @@ namespace Inventario
         private void CambiarImpresor_Load(object sender, EventArgs e)
         {
             string sAttr = ConfigurationManager.AppSettings.Get("Impresor");
-            MessageBox.Show(sAttr);
             lblImpresor.Text = sAttr;
         
             for (int i = 0; i < PrinterSettings.InstalledPrinters.Count; i++)
